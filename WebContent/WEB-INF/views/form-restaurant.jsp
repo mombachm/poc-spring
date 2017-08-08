@@ -17,7 +17,7 @@
     Image: <form:input path="image" />
     <form:button id="saveButton">Save</form:button>
 </form:form>
-
+<button id="cancelButton" onclick="location.href='/'">Cancel</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     /*$(function() {

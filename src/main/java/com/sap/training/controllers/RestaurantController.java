@@ -35,13 +35,13 @@ public class RestaurantController {
     @RequestMapping(value = "/add-restaurant")
     public String createRestaurantForm(Model model) {
         model.addAttribute("restaurant", new Restaurant());
-        return "add-restaurant";
+        return "form-restaurant";
     }
 
     @RequestMapping(value = "/add-restaurant", method = RequestMethod.POST)
     public String createRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult, RedirectAttributes redirectAttributes, HttpServletRequest req) {
         if (bindingResult.hasErrors()) {
-            return "add-restaurant";
+            return "form-restaurant";
         }
 
         if (restaurant.getId() == 0) {
@@ -57,7 +57,7 @@ public class RestaurantController {
     @RequestMapping(value = "/edit-restaurant")
     public String editRestaurantForm(@RequestParam("id") int id, Model model) {
         model.addAttribute("restaurant", restaurantService.getRestaurantbyId(id));
-        return "add-restaurant";
+        return "form-restaurant";
     }
 
     @RequestMapping(value = "/remove-restaurant")
