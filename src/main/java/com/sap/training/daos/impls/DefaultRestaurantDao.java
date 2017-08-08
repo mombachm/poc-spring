@@ -44,4 +44,9 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
     public void save(Restaurant restaurant) {
         getHibernateTemplate().save(restaurant);
     }
+
+    @Transactional
+    public void update(Restaurant restaurant) {
+        getHibernateTemplate().update(restaurant);
+    }
 }

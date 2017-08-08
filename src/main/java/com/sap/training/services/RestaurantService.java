@@ -9,8 +9,11 @@ public interface RestaurantService {
 
     void createRestaurant(Restaurant restaurant);
 
+    void updateRestaurant(Restaurant restaurant);
+
     List<Restaurant> listRestaurants();
 
     boolean deleteRestaurant(int deleteId);
 
+    Restaurant getRestaurantbyId(int id);
 }

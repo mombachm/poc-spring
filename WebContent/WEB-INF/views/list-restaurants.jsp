@@ -24,6 +24,7 @@
             <td>${restaurant.alelo}</td>
             <td><img src="${restaurant.image}" alt=""></td>
             <td><button class="removeButton"  onclick="location.href='remove-restaurant?id='+${restaurant.id}" href="">Remove</button>
+            <td><button class="editButton"  onclick="location.href='edit-restaurant?id='+${restaurant.id}" href="">Edit</button>
             </td>
         </tr>
     </c:forEach>
@@ -33,10 +34,10 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    $( ".removeButton" ).click(function(event) {
+    /*$( ".removeButton" ).click(function(event) {
         var target = $( event.target );
         target.parent().parent().remove();
-    });
+    });*/
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
 <h1>Add Restaurants</h1>
 <hr/>
 <form:form modelAttribute="restaurant" servletRelativeAction="/add-restaurant" method="POST">
+    <form:input class="form-control" path="id" type="hidden" value="${restaurant.id}"/>
     Name: <form:input path="name"/>
     <form:errors path="name"/><br/>
     Location: <form:input path="location"/>

@@ -19,6 +19,11 @@ public class DefaultRestaurantService implements RestaurantService {
     }
 
     @Override
+    public void updateRestaurant(Restaurant restaurant){
+        restaurantDao.update(restaurant);
+    }
+
+    @Override
     public List<Restaurant> listRestaurants() {
         return restaurantDao.listRestaurants();
     }
@@ -28,5 +33,8 @@ public class DefaultRestaurantService implements RestaurantService {
         return restaurantDao.deleteRestaurant(deleteId);
     }
 
-
+    @Override
+    public Restaurant getRestaurantbyId(int id) {
+        return restaurantDao.getRestaurant(id);
+    }
 }

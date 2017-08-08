@@ -43,9 +43,21 @@ public class RestaurantController {
         if (bindingResult.hasErrors()) {
             return "add-restaurant";
         }
-        restaurantService.createRestaurant(restaurant);
+
+        if (restaurant.getId() == 0) {
+            restaurantService.createRestaurant(restaurant);
+        }else{
+            restaurantService.updateRestaurant(restaurant);
+        }
+
         redirectAttributes.addFlashAttribute("success", true);
         return "redirect:/";
+    }
+
+    @RequestMapping(value = "/edit-restaurant")
+    public String editRestaurantForm(@RequestParam("id") int id, Model model) {
+        model.addAttribute("restaurant", restaurantService.getRestaurantbyId(id));
+        return "add-restaurant";
     }
 
     @RequestMapping(value = "/remove-restaurant")
@@ -55,6 +67,6 @@ public class RestaurantController {
         }
         restaurantService.deleteRestaurant(removeid);
         redirectAttributes.addFlashAttribute("success", true);
-        return "list-restaurants";
+        return "redirect:/";
     }
 }

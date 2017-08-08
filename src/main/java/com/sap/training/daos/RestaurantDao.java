@@ -11,6 +11,8 @@ public interface RestaurantDao {
 
     void save(Restaurant restaurant);
 
+    void update(Restaurant restaurant);
+
     List<Restaurant> listRestaurants();
 
     boolean deleteRestaurant(int id);

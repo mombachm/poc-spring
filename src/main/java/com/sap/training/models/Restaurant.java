@@ -1,8 +1,12 @@
 package com.sap.training.models;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "RESTAURANT")
@@ -11,12 +15,16 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
+    @NotNull
     private int id;
 
     @Column(name = "NAME")
+    @NotBlank
     private String name;
 
     @Column(name = "AV_PRICE")
+    @Digits(integer = 3 /*precision*/, fraction = 2 /*scale*/, message = "Invalid value")
+    @Min(1)
     private double averagePrice;
 
     @Column(name = "LOCATION")
