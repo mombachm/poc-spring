@@ -1,3 +1,8 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+
+<link rel="stylesheet" href="resources/css/list-restaurant.css" type="text/css"/>
+<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,28 +14,46 @@
     <title>Insert title here</title>
 </head>
 <body>
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Average Price</th>
-        <th>Accept Alelo</th>
-    </tr>
-    <c:forEach var="restaurant" items="${restaurants}">
-        <tr>
-            <td>${restaurant.name}</td>
-            <td>${restaurant.location}</td>
-            <td>${restaurant.averagePrice}</td>
-            <td>${restaurant.alelo}</td>
-            <td><img src="${restaurant.image}" alt=""></td>
-            <td><button class="removeButton"  onclick="location.href='remove-restaurant?id='+${restaurant.id}" href="">Remove</button>
-            <td><button class="editButton"  onclick="location.href='edit-restaurant?id='+${restaurant.id}" href="">Edit</button>
-            </td>
-        </tr>
-    </c:forEach>
-</table>
+<div class="container">
+    <br>
+    <h2>Where to lunch?</h2>
+    <br>
+    <div class="card-deck">
+        <c:forEach var="restaurant" items="${restaurants}">
+            <div class="card" style="width: 300px;">
+                <c:choose>
+                    <c:when test="${not empty restaurant.image}">
+                        <img style="max-height:100%; max-width: 100%;" class="img-responsive" src="${restaurant.image}" alt="Card image cap">
+                    </c:when>
+                    <c:otherwise>
+                        <img style="max-height:100%; max-width: 100%;" class="img-responsive" src="http://www.nutrienteaf.com/wp-content/uploads/2015/10/cardapioicone.png" alt="Card image cap">
+                    </c:otherwise>
+                </c:choose>
+                <div class="card-block">
+                    <h4 class="card-title">${restaurant.name}</h4>
+                    <p class="card-text">Average Price: R$${restaurant.averagePrice}</p>
+                    <c:choose>
+                        <c:when test="${restaurant.alelo}">
+                            <img style="width: 70px; height: auto;" class="img-responsive" src="https://www.meualelo.com.br/saldo_extrato/images/alelo-logo.png"/>
+                        </c:when>
+                        <c:otherwise>
+                            <img style="opacity: 0.1; width: 70px; height: auto;" class="img-responsive" src="https://www.meualelo.com.br/saldo_extrato/images/alelo-logo.png"/>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="${restaurant.location}" class="btn btn-primary"><img class="imgIcon" src="http://flaticons.net/icons/Miscellaneous/Maps.png" /></a>
+                    <a href="#" onclick="location.href='remove-restaurant?id='+${restaurant.id}" class="btn btn-primary"><img class="imgIcon" src="http://flaticons.net/icons/Office/Delete.png" /></a>
+                    <a href="#" onclick="location.href='edit-restaurant?id='+${restaurant.id}" class="btn btn-primary"><img class="imgIcon" src="http://www.iconsdb.com/icons/preview/white/edit-2-xxl.png" /></a>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+    <br>
+    <button role="button" class="btn btn-primary" value="Add" onclick="location.href='add-restaurant'">Add Restaurant</button>
+</div>
 <br>
-<input type="button" value="Add" onclick="location.href='add-restaurant'">
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
