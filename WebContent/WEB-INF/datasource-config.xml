@@ -11,7 +11,7 @@
     <!-- Data Source -->
     <bean id="dataSourceDefault" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name="url" value="jdbc:hsqldb:file:./spring-poc-db/springpocdb;hsqldb.lock_file=false;shutdown=true"/>
+        <property name="url" value="jdbc:hsqldb:file:C:/Users/I858482/cloud/apache-tomcat-9.0.0.M22/bin/spring-poc-db;hsqldb.lock_file=false;shutdown=true"/>
         <property name="username" value="SA"/>
         <property name="password" value=""/>
         <property name="initialSize" value="1"/>

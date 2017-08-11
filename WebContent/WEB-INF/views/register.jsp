@@ -7,16 +7,17 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-    <title>Where to lunch, CD? - Register</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Where to lunch? - Register</title>
 
 </head>
 <body>
-
+<div  class="container form-signin">
+    <br>
+    <h2 id="headerText" class="header">Where to lunch?</h2>
+    <hr>
+</div>
 <div class="container form-signin">
-    <h2>Welcome. Please register</h2>
-
+    <h1>Register</h1>
     <form:form class="form-signin" modelAttribute="user" servletRelativeAction="/registration" method="POST">
         <div class="form-group">
             Name: <form:input path="name" id="userName" class="form-control"/>

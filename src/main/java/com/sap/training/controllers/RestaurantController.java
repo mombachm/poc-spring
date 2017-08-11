@@ -3,6 +3,7 @@ package com.sap.training.controllers;
 import com.sap.training.models.Restaurant;
 import com.sap.training.services.RestaurantService;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
+@Transactional
 @Controller
 public class RestaurantController {
 

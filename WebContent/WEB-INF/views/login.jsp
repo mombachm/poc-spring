@@ -12,13 +12,13 @@
     <title>Where to lunch? - Login</title>
 </head>
 <body>
-
-<h2 id="headerText" class="header">Where to lunch, CD?</h2>
-<hr>
+<div  class="container form-signin">
 <br>
+<h2 id="headerText" class="header">Where to lunch?</h2>
+<hr>
+</div>
 
 <div  class="container form-signin">
-    <br>
     <h1>Log in</h1>
     <form:form class="form-signin" modelAttribute="user" servletRelativeAction="/" method="POST">
         <div class="form-group">
