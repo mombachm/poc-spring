@@ -20,6 +20,12 @@ public class RestaurantController {
     private RestaurantService restaurantService;
 
     @RequestMapping(value = "/")
+    public String mainRedirect(RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("success", true);
+        return "redirect:/restaurants";
+    }
+
+    @RequestMapping(value = "/restaurants")
     public String listRestaurants(Model model) {
         List<Restaurant> restaurants = restaurantService.listRestaurants();
         model.addAttribute("restaurants", restaurants);
@@ -27,7 +33,7 @@ public class RestaurantController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/restaurants")
+    @RequestMapping(value = "/restaurants-json")
     public List<Restaurant> getRestRestaurants(Model model) {
         return restaurantService.listRestaurants();
     }
@@ -51,7 +57,7 @@ public class RestaurantController {
         }
 
         redirectAttributes.addFlashAttribute("success", true);
-        return "redirect:/";
+        return "redirect:/restaurants";
     }
 
     @RequestMapping(value = "/edit-restaurant")
@@ -67,6 +73,6 @@ public class RestaurantController {
         }
         restaurantService.deleteRestaurant(removeid);
         redirectAttributes.addFlashAttribute("success", true);
-        return "redirect:/";
+        return "redirect:/restaurants";
     }
 }

@@ -1,8 +1,8 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 
-<link rel="stylesheet" href="resources/css/form-restaurant.css" type="text/css"/>
-<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/form-restaurant.css" type="text/css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" type="text/css"/>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
@@ -42,7 +42,7 @@
             </div>
             <form:button role="button" href="#" class="form-control btn btn-primary" id="saveButton">Save</form:button>
         </form:form>
-        <button href="#" role="button" id="cancelButton" class="form-control btn btn-primary" onclick="location.href='/'">Cancel</button>
+        <button href="#" role="button" id="cancelButton" class="form-control btn btn-primary" onclick="location.href='/restaurants'">Cancel</button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
