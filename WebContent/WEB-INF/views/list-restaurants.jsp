@@ -1,8 +1,8 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 
-<link rel="stylesheet" href="resources/css/list-restaurant.css" type="text/css"/>
-<link rel="stylesheet" href="resources/css/main.css" type="text/css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list-restaurant.css" type="text/css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css" type="text/css"/>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,7 +14,9 @@
     <title>Insert title here</title>
 </head>
 <body>
+<a class="btn btn-primary" href="<c:url value="/logoutSpring" />">Logout</a>
 <div class="container">
+    <br>
     <br>
     <h2>Where to lunch?</h2>
     <br>
@@ -42,15 +44,24 @@
                     </c:choose>
                 </div>
                 <div class="card-footer text-center">
-                    <a href="${restaurant.location}" class="btn btn-primary"><img class="imgIcon" src="http://flaticons.net/icons/Miscellaneous/Maps.png" /></a>
-                    <a href="#" onclick="location.href='remove-restaurant?id='+${restaurant.id}" class="btn btn-primary"><img class="imgIcon" src="http://flaticons.net/icons/Office/Delete.png" /></a>
-                    <a href="#" onclick="location.href='edit-restaurant?id='+${restaurant.id}" class="btn btn-primary"><img class="imgIcon" src="http://www.iconsdb.com/icons/preview/white/edit-2-xxl.png" /></a>
+                    <a href="${restaurant.location}" class="btn btn-primary">
+                        <img class="imgIcon" src="http://flaticons.net/icons/Miscellaneous/Maps.png" />
+                    </a>
+
+                    <a href="<c:url value="/edit-restaurant">
+                        <c:param name="id" value="${restaurant.id}" />
+                    </c:url>" class="btn btn-primary">
+                        <img class="imgIcon" src="http://flaticons.net/icons/User%20Interface/Report-Editor.png"/>
+                    </a>
+                    <a href="#" onclick="location.href='remove-restaurant?id='+${restaurant.id}" class="btn btn-primary">
+                        <img class="imgIcon" src="http://www.flaticons.net/icons/Office/Delete.png"/>
+                    </a>
                 </div>
             </div>
         </c:forEach>
     </div>
     <br>
-    <button role="button" class="btn btn-primary" value="Add" onclick="location.href='add-restaurant'">Add Restaurant</button>
+    <a class="btn btn-primary" href="<c:url value="/add-restaurant" />">Add Restaurant</a>
 </div>
 <br>
 

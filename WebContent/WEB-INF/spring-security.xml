@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http auto-config="true"  use-expressions="true" >
+        <intercept-url pattern="/" access="isAnonymous()" />
+        <intercept-url pattern="/logout" access="permitAll" />
+        <intercept-url pattern="/accessdenied" access="permitAll" />
+        <intercept-url pattern="/logout" access="permitAll" />
+        <intercept-url pattern="/restaurants/**" access="isAuthenticated()" />
+        <access-denied-handler error-page="/accessdenied"></access-denied-handler>
+        <form-login login-page="/"
+                    login-processing-url="/"
+                    authentication-success-handler-ref="loginSuccessHandler"
+                    username-parameter="email"
+                    password-parameter="password"
+                    authentication-failure-url="/?error=true"
+        />
+        <logout logout-success-url="/" logout-url="/logoutSpring" />
+        <csrf disabled="true"></csrf>
+    </http>
+
+    <beans:bean id="loginSuccessHandler" class="com.sap.training.security.LoginSuccessHandler">
+        <beans:property name="defaultTargetUrl" value="/restaurants/"/>
+        <beans:property name="alwaysUseDefaultTargetUrl" value="true"/>
+    </beans:bean>
+
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsService">
+            <password-encoder ref="encoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailsService" class="com.sap.training.services.impls.DefaultUserDetailsService" />
+
+    <beans:bean id="securityService" class="com.sap.training.services.impls.DefaultSecurityService" />
+
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+</beans:beans>
