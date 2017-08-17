@@ -12,4 +12,6 @@ public interface UserService {
     boolean confirmPassword(User user);
 
     String encodePassword(String password);
+
+    User getUserByEmail(String email);
 }

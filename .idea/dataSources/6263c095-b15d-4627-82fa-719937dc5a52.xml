@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="jdbc:hsqldb:file:C:\Users\I858482\cloud\apache-tomcat-9.0.0.M22\bin\spring-poc-db;hsqldb.lock_file=false;shutdown=true">
+<dataSource name="jdbc:hsqldb:file:C:\Users\I858482\cloud\apache-tomcat-9.0.0.M22\bin\spring-poc-db2;hsqldb.lock_file=false;shutdown=true">
   <database-model serializer="dbm" rdbms="HSQLDB" format-version="4.3">
     <root id="1"/>
     <database id="2" parent="1" name="PUBLIC">
@@ -14,65 +14,124 @@
     <schema id="5" parent="2" name="SYSTEM_LOBS"/>
     <table id="6" parent="4" name="RESTAURANT"/>
     <table id="7" parent="4" name="USER"/>
-    <column id="8" parent="6" name="ID">
+    <table id="8" parent="4" name="VOTE"/>
+    <table id="9" parent="4" name="VOTING"/>
+    <column id="10" parent="6" name="ID">
       <Position>1</Position>
       <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="9" parent="6" name="IS_ALELO">
+    <column id="11" parent="6" name="IS_ALELO">
       <Position>2</Position>
       <DataType>BOOLEAN(0)|16</DataType>
     </column>
-    <column id="10" parent="6" name="AV_PRICE">
+    <column id="12" parent="6" name="AV_PRICE">
       <Position>3</Position>
       <DataType>DOUBLE(64)|8</DataType>
     </column>
-    <column id="11" parent="6" name="IMAGE">
+    <column id="13" parent="6" name="IMAGE">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="12" parent="6" name="LOCATION">
+    <column id="14" parent="6" name="LOCATION">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="13" parent="6" name="NAME">
+    <column id="15" parent="6" name="NAME">
       <Position>6</Position>
       <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="14" parent="6" name="SYS_PK_10092">
+    <key id="16" parent="6" name="SYS_PK_10092">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="15" parent="7" name="ID">
+    <column id="17" parent="7" name="ID">
       <Position>1</Position>
       <DataType>INTEGER(32)|4</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="16" parent="7" name="DOB">
+    <column id="18" parent="7" name="DOB">
       <Position>2</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="17" parent="7" name="EMAIL">
+    <column id="19" parent="7" name="EMAIL">
       <Position>3</Position>
       <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="18" parent="7" name="NAME">
+    <column id="20" parent="7" name="NAME">
       <Position>4</Position>
       <DataType>VARCHAR(255)|12</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="7" name="PASS">
+    <column id="21" parent="7" name="PASS">
       <Position>5</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <column id="20" parent="7" name="PASS_CONFIRM">
+    <column id="22" parent="7" name="PASS_CONFIRM">
       <Position>6</Position>
       <DataType>VARCHAR(255)|12</DataType>
     </column>
-    <key id="21" parent="7" name="SYS_PK_10100">
+    <key id="23" parent="7" name="SYS_PK_10100">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="24" parent="8" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER(32)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="8" name="RESTAURANT_ID">
+      <Position>2</Position>
+      <DataType>INTEGER(32)|4</DataType>
+    </column>
+    <column id="26" parent="8" name="USER_ID">
+      <Position>3</Position>
+      <DataType>INTEGER(32)|4</DataType>
+    </column>
+    <column id="27" parent="8" name="VOTING_ID">
+      <Position>4</Position>
+      <DataType>INTEGER(32)|4</DataType>
+    </column>
+    <key id="28" parent="8" name="SYS_PK_10108">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="29" parent="8" name="FKL89H5G3W1U453IILBMDJPWQDB">
+      <ColNames>RESTAURANT_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>RESTAURANT</RefTableName>
+      <RefKeyName>SYS_PK_10092</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="30" parent="8" name="FK66HXDO1WTXJBTADDXYA5UU76">
+      <ColNames>USER_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>USER</RefTableName>
+      <RefKeyName>SYS_PK_10100</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="31" parent="8" name="FKM3VRWM1VMDKF3OQ5CJU9QQ53G">
+      <ColNames>VOTING_ID</ColNames>
+      <RefSchemaName>PUBLIC</RefSchemaName>
+      <RefTableName>VOTING</RefTableName>
+      <RefKeyName>SYS_PK_10116</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <column id="32" parent="9" name="ID">
+      <Position>1</Position>
+      <DataType>INTEGER(32)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="9" name="NAME">
+      <Position>2</Position>
+      <DataType>VARCHAR(255)|12</DataType>
+    </column>
+    <key id="34" parent="9" name="SYS_PK_10116">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>

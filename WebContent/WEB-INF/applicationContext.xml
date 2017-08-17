@@ -2,32 +2,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       					   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       					   http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+       					   http://www.springframework.org/schema/context
+       					   http://www.springframework.org/schema/context/spring-context.xsd
+       					   http://www.springframework.org/schema/mvc
+       					   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config/>
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!--&lt;!&ndash; Beans de service &ndash;&gt;-->
 
-    <!-- BOOKING REST BEANS-->
-
-
-    <!-- BOOKING REST BEANS-->
-
-
-    <!-- RESTAURANT  BEANS-->
     <!-- Beans de service -->
     <bean name="restaurantService" class="com.sap.training.services.impls.DefaultRestaurantService"/>
     <bean name="userService" class="com.sap.training.services.impls.DefaultUserService"/>
+    <bean name="votingService" class="com.sap.training.services.impls.DefaultVotingService"/>
+    <bean name="voteService" class="com.sap.training.services.impls.DefaultVoteService"/>
 
     <!-- Beans de dao -->
     <bean name="restaurantDao" class="com.sap.training.daos.impls.DefaultRestaurantDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean name="userDao" class="com.sap.training.daos.impls.DefaultUserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="votingDao" class="com.sap.training.daos.impls.DefaultVotingDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="voteDao" class="com.sap.training.daos.impls.DefaultVoteDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

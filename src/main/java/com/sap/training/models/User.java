@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "USER")
@@ -36,6 +37,9 @@ public class User {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "DOB")
     private String dateOfBirth;
+
+    @OneToMany(mappedBy="user", fetch=FetchType.EAGER)
+    private List<Vote> votes;
 
     public int getId() {
         return this.id;
@@ -83,5 +87,13 @@ public class User {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<Vote> getVotes() {
+        return this.votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
     }
 }
