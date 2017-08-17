@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="jdbc:hsqldb:file:C:\Users\I858482\cloud\apache-tomcat-9.0.0.M22\bin\spring-poc-db;hsqldb.lock_file=false;shutdown=true" uuid="6263c095-b15d-4627-82fa-719937dc5a52">
+    <data-source name="jdbc:hsqldb:file:C:\Users\I858482\cloud\apache-tomcat-9.0.0.M22\bin\spring-poc-db2;hsqldb.lock_file=false;shutdown=true" uuid="6263c095-b15d-4627-82fa-719937dc5a52">
       <database-info product="HSQL Database Engine" version="2.3.4" jdbc-version="4.0" driver-name="HSQL Database Engine Driver" driver-version="2.3.4">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

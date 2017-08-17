@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "RESTAURANT")
@@ -36,6 +37,9 @@ public class Restaurant {
     @Column(name = "IMAGE")
     private String image;
 
+    @OneToMany(mappedBy="restaurant")
+    private List<Vote> votes;
+
     public int getId() {
         return id;
     }
@@ -48,7 +52,6 @@ public class Restaurant {
         return name;
     }
 
-    @Required
     public void setName(String name) {
         this.name = name;
     }
@@ -57,7 +60,6 @@ public class Restaurant {
         return averagePrice;
     }
 
-    @Required
     public void setAveragePrice(double averagePrice) {
         this.averagePrice = averagePrice;
     }
@@ -84,5 +86,13 @@ public class Restaurant {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
     }
 }

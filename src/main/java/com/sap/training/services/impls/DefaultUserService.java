@@ -45,4 +45,10 @@ public class DefaultUserService implements UserService {
     public String encodePassword(String password){
         return passwordEncoder.encode(password);
     }
+
+    @Override
+
+    public User getUserByEmail(String email) {
+        return userDao.getUserByEmail(email);
+    }
 }

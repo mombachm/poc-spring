@@ -62,6 +62,7 @@
     </div>
     <br>
     <a class="btn btn-primary" href="<c:url value="/add-restaurant" />">Add Restaurant</a>
+    <a class="btn btn-primary" href="<c:url value="/votings" />">Votings</a>
 </div>
 <br>
 
